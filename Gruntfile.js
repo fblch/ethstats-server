@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 					}
 				},
 				files: {
-					'dist/index.html': 'src/pow/views/index.pug'
+					'dist/index.html': 'src/theChain/views/index.pug'
 				}
 			}
 		},
@@ -156,7 +156,7 @@ module.exports = function(grunt) {
 					},
 					{
 						expand: true,
-						cwd: 'src/pow/css/',
+						cwd: 'src/theChain/css/',
 						src: styles,
 						dest: 'dist/css/',
 						filter: 'isFile'
