@@ -62,6 +62,17 @@ module.exports = function(grunt) {
 				files: {
 					'dist/index.html': 'src/pow/views/index.pug'
 				}
+			},
+			build_theChain: {
+				options: {
+					data: {
+						debug: false,
+						pretty: true
+					}
+				},
+				files: {
+					'dist/index.html': 'src/pow/views/index.pug'
+				}
 			}
 		},
 		copy: {
@@ -126,7 +137,38 @@ module.exports = function(grunt) {
 						dest: 'dist/js/lib'
 					}
 				]
-			}
+			},
+			build_theChain: {
+				files: [
+					{
+						expand: true,
+						cwd: 'src/fonts/',
+						src: ['*.*'],
+						dest: 'dist/fonts/',
+						filter: 'isFile'
+					},
+					{
+						expand: true,
+						cwd: 'src/images/',
+						src: ['*.*'],
+						dest: 'dist/',
+						filter: 'isFile'
+					},
+					{
+						expand: true,
+						cwd: 'src/pow/css/',
+						src: styles,
+						dest: 'dist/css/',
+						filter: 'isFile'
+					},
+					{
+						expand: true,
+						cwd: 'src/js/lib/',
+						src: ['*.*'],
+						dest: 'dist/js/lib'
+					}
+				]
+			},
 		},
 		cssmin: {
 			build: {
@@ -192,5 +234,6 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('default', ['clean:build', 'clean:js', 'clean:css', 'pug:build', 'copy:build', 'cssmin:build', 'concat:vendor', 'concat:scripts', 'uglify:app', 'concat:netstats', 'concat:css', 'clean:js', 'clean:css']);
 	grunt.registerTask('pow', ['clean:build', 'clean:js', 'clean:css', 'pug:build_pow', 'copy:build_pow', 'cssmin:build', 'concat:vendor', 'concat:scripts', 'uglify:app', 'concat:netstats', 'concat:css', 'clean:js', 'clean:css']);
+	grunt.registerTask('theChain', ['clean:build', 'clean:js', 'clean:css', 'pug:build_theChain', 'copy:build_theChain', 'cssmin:build', 'concat:vendor', 'concat:scripts', 'uglify:app', 'concat:netstats', 'concat:css', 'clean:js', 'clean:css']);
 	grunt.registerTask('poa',   'default');
 };
