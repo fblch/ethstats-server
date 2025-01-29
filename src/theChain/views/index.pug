@@ -19,8 +19,8 @@ block content
           div.big-details-holder
             //- change small-title to votes from uncles
             span.small-title votes&nbsp;
-              span.small (current / last 50)
-            span.big-details {{ bestStats.block.uncles.length }}/{{ uncleCount }}
+              span.small (current / last 50 sum)
+            span.big-details {{ bestStats.block.votes.length }}/{{ lastVotesSum }}
           div.clearfix
       div.col-xs-2.stat-holder
         div.big-info.blocktime(class="{{ lastBlock | timeClass : true }}")
@@ -131,7 +131,7 @@ block content
                   span.small-title vote count&nbsp;
                     //- span.small (25 blocks per bar) //- In theChain, it is not need
                   //- span.small-value {{ bestStats.block.uncles.length }}/{{ uncleCount }}
-                  sparkchart.big-details.spark-uncles(data="{{uncleCountChart.join(',')}}")
+                  sparkchart.big-details.spark-uncles(data="{{voteCount.join(',')}}")
 
               div.col-xs-3.stat-holder
                 div.big-info.chart.text-info
@@ -184,7 +184,7 @@ block content
             th
               i.icon-check-o(data-toggle="tooltip", data-placement="top", title="Block transactions", ng-click="orderTable(['-stats.block.transactions.length'], false)")
             th
-              i.icon-uncle(data-toggle="tooltip", data-placement="top", title="Votes", ng-click="orderTable(['-stats.block.uncles.length'], false)")
+              i.icon-uncle(data-toggle="tooltip", data-placement="top", title="Votes", ng-click="orderTable(['-stats.block.votes.length'], false)")
             th.th-blocktime
               i.icon-time(data-toggle="tooltip", data-placement="top", title="Last block time", ng-click="orderTable(['-stats.block.received'], false)")
             th.th-peerPropagationTime
