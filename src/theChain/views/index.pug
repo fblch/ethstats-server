@@ -20,7 +20,7 @@ block content
             //- change small-title to votes from uncles
             span.small-title votes&nbsp;
               span.small (current / last 50 sum)
-            span.big-details {{ bestStats.block.votes.length }}/{{ lastVotesSum }}
+            span.big-details {{ bestStats.block.votes.length }}/{{ votesCount }}
           div.clearfix
       div.col-xs-2.stat-holder
         div.big-info.blocktime(class="{{ lastBlock | timeClass : true }}")
@@ -131,7 +131,7 @@ block content
                   span.small-title vote count&nbsp;
                     //- span.small (25 blocks per bar) //- In theChain, it is not need
                   //- span.small-value {{ bestStats.block.uncles.length }}/{{ uncleCount }}
-                  sparkchart.big-details.spark-uncles(data="{{voteCount.join(',')}}")
+                  sparkchart.big-details.spark-uncles(data="{{voteCountChart.join(',')}}")
 
               div.col-xs-3.stat-holder
                 div.big-info.chart.text-info
