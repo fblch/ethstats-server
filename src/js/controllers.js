@@ -19,7 +19,7 @@ netStatsApp.controller('StatsCtrl', function($scope, $filter, $localStorage, soc
 	$scope.blockPropagationAvg = 0;
 	$scope.avgHashrate = 0;
 	$scope.uncleCount = 0;
-	$scope.lastVotesSum = 0;
+	$scope.votesCount = 0;
 	$scope.bestStats = {};
 
 	$scope.lastGasLimit = _.fill(Array(MAX_BINS), 2);
@@ -27,7 +27,7 @@ netStatsApp.controller('StatsCtrl', function($scope, $filter, $localStorage, soc
 	$scope.difficultyChart = _.fill(Array(MAX_BINS), 2);
 	$scope.transactionDensity = _.fill(Array(MAX_BINS), 2);
 	$scope.gasSpending = _.fill(Array(MAX_BINS), 2);
-	$scope.voteCount = _.fill(Array(MAX_BINS), 2);
+	$scope.voteCountChart = _.fill(Array(MAX_BINS), 2);
 	$scope.miners = [];
 
 
@@ -362,9 +362,9 @@ netStatsApp.controller('StatsCtrl', function($scope, $filter, $localStorage, soc
 				if( !_.isEqual($scope.gasSpending, data.gasSpending) && data.gasSpending.length >= MAX_BINS )
 					$scope.gasSpending = data.gasSpending;
 
-				if( !_.isEqual($scope.voteCount, data.votes) && data.votes.length >= MAX_BINS ) {
-					$scope.voteCount = data.votes;
-					$scope.lastVotesSum = data.votes.reduce((acc, num) => acc + num, 0);
+				if( !_.isEqual($scope.voteCountChart, data.votes) && data.votes.length >= MAX_BINS ) {
+					$scope.voteCountChart = data.votes;
+					$scope.votesCount = data.votesCount;
 				}
 
 				if( !_.isEqual($scope.miners, data.miners) ) {
