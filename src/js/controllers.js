@@ -246,7 +246,6 @@ netStatsApp.controller('StatsCtrl', function($scope, $filter, $localStorage, soc
 						$scope.nodes[index].history = data.history;
 					}
 
-					console.log('data.block: ', data.block);
 					$scope.nodes[index].stats.block = data.block;
 					$scope.nodes[index].stats.propagationAvg = data.propagationAvg;
 
