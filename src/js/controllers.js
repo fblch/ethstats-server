@@ -362,10 +362,12 @@ netStatsApp.controller('StatsCtrl', function($scope, $filter, $localStorage, soc
 				if( !_.isEqual($scope.gasSpending, data.gasSpending) && data.gasSpending.length >= MAX_BINS )
 					$scope.gasSpending = data.gasSpending;
 
-				if( !_.isEqual($scope.voteCountChart, data.votes) && data.votes.length >= MAX_BINS ) {
+				if( !_.isEqual($scope.voteCountChart, data.votes)  && data.votes.length >= MAX_BINS ) {
 					$scope.voteCountChart = data.votes;
-					$scope.votesCount = data.votesCount;
 				}
+
+				if( !_.isEqual($scope.votesCount, data.votesCount) )
+					$scope.votesCount = data.votesCount;
 
 				if( !_.isEqual($scope.miners, data.miners) ) {
 					$scope.miners = data.miners;
